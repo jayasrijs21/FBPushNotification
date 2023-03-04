@@ -17,11 +17,17 @@ const val channelName = "com.example.fbpushnotification"
 
 class MyFirebaseMessagingService : FirebaseMessagingService(){
 
+    //generate the notification
+    //initialise channel id and name in the top
+    //get remoteView
+    //notification Manager
+    //on message received
+
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         if(remoteMessage.getNotification() != null) {
             generateNotification(remoteMessage.notification!!.title!! , remoteMessage.notification!!.body!!)
-        }
+        }//that !! means we are making it null safe
 
 
     }
@@ -40,19 +46,23 @@ class MyFirebaseMessagingService : FirebaseMessagingService(){
 
     fun generateNotification (title: String, message: String) {
        val intent = Intent(this , MainActivity::class.java)
-       intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-
+       intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP) //clears all activity in activity stack and put this activity in top
+        //pending intent means an intent that needs to be used in the future
        val pendingIntent = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_ONE_SHOT)
+        //flag ome shot means we want to use this pending intent only once
 
 
+        //initialise channel id and name in the top
         var builder: NotificationCompat.Builder = NotificationCompat.Builder(applicationContext, channelId)
             .setSmallIcon(R.drawable.baseline_auto_awesome_24).setAutoCancel(true)
-            .setVibrate(longArrayOf(1000,1000,1000,1000)).setOnlyAlertOnce(true)
+            .setVibrate(longArrayOf(1000,1000,1000,1000)).setOnlyAlertOnce(true) //1000ms so 1 sec vibrate 1 sec relax like that
             .setContentIntent(pendingIntent)
 
+
+        //type this and create a function with the same name above
         builder = builder.setContent(getRemoteview(title,message))
 
-
+        //notification manager to build the notification
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
