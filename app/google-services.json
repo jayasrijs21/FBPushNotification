@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "767199831635",
+    "project_id": "fbpushnotification-b41a6",
+    "storage_bucket": "fbpushnotification-b41a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767199831635:android:c6926795489fcd00e648a6",
+        "android_client_info": {
+          "package_name": "com.example.fbpushnotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767199831635-8alauhe6snenecrm20pjq7s0mn41sj2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5h9TNVcuNNCjAZbsHQvQG9b4u7advvgQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767199831635-8alauhe6snenecrm20pjq7s0mn41sj2r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
